@@ -214,7 +214,7 @@ class Program
         public static void ReadAndCompile(string trgtFile)
         {
             string fileName = trgtFile;
-            string filePath = @"C:\Kirill DOS\" + fileName;
+            string filePath = @"C:\DOS\" + fileName;
             string[] code = File.ReadAllLines(filePath);
             List<string> StrVarslist = new List<string>();
             List<int> IntVarList = new List<int>();
@@ -361,7 +361,7 @@ class Program
         public static void ReadAndCompile()
         {
             string fileName = Console.ReadLine();
-            string filePath = @"C:\Kirill DOS\" + fileName;
+            string filePath = @"C:\DOS\" + fileName;
             string[] code = File.ReadAllLines(filePath);
             List<string> StrVarslist = new List<string>();
             List<int> IntVarList = new List<int>();
@@ -507,29 +507,27 @@ class Program
     }
     static void Main(string[] args)
     {
-        //Sherik11
-        // Создаем директорию для хранения файлов
-        string directory = @"C:\Kirill DOS\";
+        string directory = @"C:\DOS\";
         Directory.CreateDirectory(directory);
         bool isRunning = true;
 
         while (isRunning)
         {
-            Console.WriteLine("Выберите действие:");
-            Console.WriteLine("1. Создать файл");
-            Console.WriteLine("run - запустить exe файл");
-            Console.WriteLine("dir - создать директорию");
-            Console.WriteLine("del - удалить файл");
-            Console.WriteLine("2. Редактировать файл");
-            Console.WriteLine("3. Открыть файл");
-            Console.WriteLine("4. Открыть калькулятор");
-            Console.WriteLine("5. Показать текущее время");
-            Console.WriteLine("6. Открыть мессенжер");
-            Console.WriteLine("clear - очистить консоль");
-            Console.WriteLine("delDir - удалить директорию");
-            Console.WriteLine("7. Закрыть программу");
-            Console.WriteLine("runSource - запустить код на K-asm файл");
-            Console.WriteLine("info - информация о папке");
+            Console.WriteLine("Actions:");
+            Console.WriteLine("1. create file");
+            Console.WriteLine("run - run exe file");
+            Console.WriteLine("dir - create directory");
+            Console.WriteLine("del - delete file");
+            Console.WriteLine("2. edit file");
+            Console.WriteLine("3. open file");
+            Console.WriteLine("4. not work");
+            Console.WriteLine("5. time");
+            Console.WriteLine("6. not work");
+            Console.WriteLine("clear - clear console");
+            Console.WriteLine("delDir - delet directory");
+            Console.WriteLine("7. close programm");
+            Console.WriteLine("runSource");
+            Console.WriteLine("info");
 
             string input = Console.ReadLine();
 
@@ -582,7 +580,7 @@ class Program
                     Language.ReadAndCompile();
                     break;
                 default:
-                    Console.WriteLine("Некорректный ввод. Пожалуйста, попробуйте еще раз.");
+                    Console.WriteLine("Incorrect input.");
                     break;
             }
 
@@ -591,74 +589,73 @@ class Program
     }
     static void RunFile()
     {
-        Console.WriteLine("Укажите название файла:");
+        Console.WriteLine("Write filename:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS\" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
         if (File.Exists(filePath))
         {
             Process.Start(filePath);
-            Console.WriteLine("Файл " + fileName + " запушен.");
+            Console.WriteLine("file " + fileName + " runned.");
         }
         else
         {
-            Console.WriteLine("Нет такого");
+            Console.WriteLine("There is no file you want to use");
         }
 
     }
     static void DelDir()
     {
-        Console.WriteLine("Укажите название директории:");
+        Console.WriteLine("Write direcory name:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS\" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
         Directory.Delete(filePath);
-        Console.WriteLine("Директория удалена");
+        Console.WriteLine("directory deleted");
     }
     static void NewDir()
     {
-        Console.WriteLine("Укажите название новой директории:");
+        Console.WriteLine("Write name of new derectory:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
         Directory.CreateDirectory(filePath);
-        Console.WriteLine("Директория создана");
+        Console.WriteLine("directory has created");
     }
     static void DeleteFile()
     {
-        Console.WriteLine("Укажите название файла:");
+        Console.WriteLine("Write filename:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
         if (File.Exists(filePath))
         {
             File.Delete(filePath);
-            Console.WriteLine("Файл успешно удалён");
+            Console.WriteLine("File has deleted");
         }
         else
         {
-            Console.WriteLine("Такого нету");
+            Console.WriteLine("There is no file you want to use");
         }
 
     }
 
     static void CreateFile()
     {
-        Console.WriteLine("Введите имя файла:");
+        Console.WriteLine("Write filename:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS\" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
 
-        // Создаем файл
         File.Create(filePath).Close();
 
-        Console.WriteLine("Файл успешно создан.");
+        Console.WriteLine("File has created.");
     }
 
     static void EditFile()
     {
-        Console.WriteLine("Введите имя файла для редактирования:");
+        Console.WriteLine("Write filename:");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS\" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
 
         if (File.Exists(filePath))
         {
-            Console.WriteLine("Введите текст для сохранения в файле (Ctrl + Z для завершения):");
+            Console.WriteLine("Write text (Ctrl + Z to complete):");
 
             List<string> lines = new List<string>();
 
@@ -668,28 +665,26 @@ class Program
                 lines.Add(line);
             }
 
-            // Сохраняем текст в файл
             File.WriteAllLines(filePath, lines);
 
-            Console.WriteLine("Файл успешно отредактирован и сохранен.");
+            Console.WriteLine("File has created");
         }
         else
         {
-            Console.WriteLine("Файл не существует.");
+            Console.WriteLine("File not exists");
         }
     }
 
     static void OpenFile()
     {
-        Console.WriteLine("Введите имя файла для открытия:");
+        Console.WriteLine("Write filename");
         string fileName = Console.ReadLine();
-        string filePath = @"C:\Kirill DOS\" + fileName;
+        string filePath = @"C:\DOS\" + fileName;
 
         if (File.Exists(filePath))
         {
-            Console.WriteLine("Содержимое файла:");
+            Console.WriteLine("Content");
 
-            // Читаем содержимое файла и выводим на экран
             string[] lines = File.ReadAllLines(filePath);
             foreach (string line in lines)
             {
@@ -698,22 +693,20 @@ class Program
         }
         else
         {
-            Console.WriteLine("Файл не существует.");
+            Console.WriteLine("File not exists");
         }
     }
 
     static void OpenCalculator()
     {
-        Console.WriteLine("Открытие калькулятора...");
     }
 
     static void ShowCurrentTime()
     {
-        Console.WriteLine("Текущее время: " + DateTime.Now.ToString("HH:mm:ss"));
+        Console.WriteLine("Time: " + DateTime.Now.ToString("HH:mm:ss"));
     }
 
     static void OpenMessenger()
     {
-        Console.WriteLine("Открытие мессенжера...");
     }
 }
