@@ -16,3 +16,6 @@ printVar<br>
 "<br>
 will print "Hello World" too<br>
 All lines that do not have a command are considered comments<br>
+P.S.
+I wrote absolutely everything myself.
+Please write your comment, it's very important for me.
