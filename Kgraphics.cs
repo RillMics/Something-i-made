@@ -51,7 +51,7 @@ namespace Graphics
 
         public static int CalcCoord(int x, int y)
         {
-            return (x * width) + y;
+            return (y * width) + x;
         }
         public static void CalcPix(int x, int y)
         {
